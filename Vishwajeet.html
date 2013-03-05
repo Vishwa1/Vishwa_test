@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Geolocation API Features Tester</title>
+	<script src="http://code.jquery.com/jquery-1.7.1.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	
+	<script>
+	// Google Maps global map variable
+	var map;
+	
+	$(document).ready(function () {
+        var myOptions = {
+          center: new google.maps.LatLng(53.5, -7),
+          zoom: 4,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+		
+		map = new google.maps.Map(document.getElementById("map"), myOptions);
+    	
+	    $('#go').click(function () {
+	        // test for presence of geolocation
+	        if (navigator && navigator.geolocation) {
+	            // make the request for the user's position
+	            navigator.geolocation.getCurrentPosition(geo_success, geo_error);
+	        } else {
+	           error('Geolocation is not supported.');
+	        }
+	    });
+	});
+
+	function geo_success(position) {
+	    printAddress(position.coords.latitude, position.coords.longitude);
+	}
+
+	function geo_error(err) {
+	    if (err.code == 1) {
+	        error('The user denied the request for location information.')
+	    } else if (err.code == 2) {
+	        error('Your location information is unavailable.')
+	    } else if (err.code == 3) {
+	        error('The request to get your location timed out.')
+	    } else {
+	        error('An unknown error occurred while requesting your location.')
+	    }
+	}
+
+	// use Google Maps API to reverse geocode your location
+	function printAddress(latitude, longitude) {
+	    // Create a Google Maps Geocoder object
+	    var geocoder = new google.maps.Geocoder();
+
+	    // Change coordinates into a location 
+	    var yourLocation = new google.maps.LatLng(latitude, longitude);
+	
+	
+		//Setup map and position on map
+    	var myOptions = {
+        	zoom: 15,
+        	mapTypeId: google.maps.MapTypeId.ROADMAP,
+        	center: yourLocation
+    	}
+    	map = new google.maps.Map(document.getElementById("map"), myOptions);
+
+		// To add the marker to the map set it up then call setMap();
+		var marker = new google.maps.Marker({
+		    position: yourLocation,
+		    title:"Hello World!"
+		});
+			
+		marker.setMap(map);
+
+	    // Use Google maps to find out about the location
+	    geocoder.geocode({ 'latLng': yourLocation }, function (results, status) {
+	        if (status == google.maps.GeocoderStatus.OK) {
+	            if (results[0]) {
+	                $('#local').html('Hotel Address:<br />' +
+	                    results[0].formatted_address);
+	            } else {
+	                error('Google did not return any results.');
+	            }
+	        } else {
+	            error("Reverse Geocoding failed due to: " + status);
+	        }
+	    });
+	}
+
+	function error(msg) {
+	    alert(msg);
+	}
+
+
+	</script>
+	
+	
+</head>
+
+<body>
+<div id="header" style="background-color:#FFA500;">
+<!Below is Hotel Name>
+<h1 style="margin-bottom:0;">VJ's Hotel</h1></div>
+<!Below is Hotel Logo>
+<div id="logo"> <img border="0" src="http://dailydropcap.com/images/V-8.jpg" alt="Pulpit rock" width="100" height="100"> </div>
+
+<!Below is use of CSS>
+<div id="menu" style="background-color:#FFD700;height:200px;width:100px;float:left;">
+<b>Menu</b><br>
+Food <br>
+Beverages <br>
+Address<br>
+Contact us</div>
+
+<div id="content" style="background-color:#EEEEEE;height:200px;width:400px;float:left;">
+This hotel is for all the people who love sea food. We have variety and delicious sea food in the hotel or at your doorstep.</div>
+
+<!Geolocation starts here>
+<div id="content">
+ 		
+
+		<input type="button" id="go" value="Click Me To View the Hotel Address" />
+
+		<p id = "local">Your location is: </p>
+		<div id="map" style="width:450px; height:300px">></div>
+		
+	</div>
+<div> </div>
+		
+<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+Copyright © VishwajeetVibhute.com</div>
+
+</div>
+ 
+</body>
+</html>
