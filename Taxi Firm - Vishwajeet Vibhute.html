@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!Usage of Css Grid>
+<link rel="stylesheet" href="css/1140.css" type="text/css" media="screen" />
+<script src="http://maps.googleapis.com/maps/api/js?&sensor=false">
+</script>
+<script>
+var markerOne=new google.maps.LatLng(51.508742,-0.120850);
+var markerTwo=new google.maps.LatLng(52.508742,-6.150950);
+var marker1;
+var marker2;
+function initialize()
+{
+var myMap = {
+  center:markerOne,
+  zoom:5,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+
+  var map=new google.maps.Map(document.getElementById("googleMap"),myMap);
+
+
+
+
+
+marker1=new google.maps.Marker({
+  position:markerOne
+    });
+marker2=new google.maps.Marker({
+  position:markerTwo
+    });
+
+marker1.setMap(map);
+marker2.setMap(map);
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
+</script>
+
+	
+</head>
+<! Internal CSS is used below and in most parts of the website>
+<body style = "background-color:#C7F3E5;">
+<!Below is Taxi Firm Logo>
+<div id="logo"> <img border="0" src="http://thumbs.dreamstime.com/thumblarge_467/12629210447fg0Ee.jpg" alt="Pulpit rock" width="100" height="100"> </div>
+
+<!Usage of Canvas and Firm logo is incorporated in header tag>
+
+<article>
+	<header>
+<!Below is Taxi Firm Name>
+<h1 style="background-color:#FFA500;" >Travel Time</h1>
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+
+// Create gradient
+var grd=ctx.createRadialGradient(75,50,5,90,60,100);
+grd.addColorStop(1,"black");
+grd.addColorStop(0,"yellow");
+
+// Fill with gradient
+ctx.fillStyle=grd;
+ctx.fillRect(10,10,150,80);
+
+</script>
+</header>
+</article>
+<!End Usage of Canvas>
+
+<!Below is information about the company>
+
+<div class="clear"></div>
+                            
+                            	<div class="middleMainHome">
+                            	<div class="leftsectionHome">
+                                <h1>Welcome to TravelTime Car Rental Pvt. Ltd.</h1>
+                                <div class="boxmiddle">
+                                <p>
+<div style="color:#009900;"></div>
+								Traveltime narrates the story of an idea and a dream turned reality. An idea to make travelling safe and comfortable. An idea of making the name of 'Traveltime' synonymous with travelling- and a dream of making it synonymous with safety and reliability.  </p>
+<p>For over 15 years, our customers have trusted our transportation services par excellence - we travel 24 hours of the day! When we talk about our punctuality and market-compatible and affordable rates combined with our professional, well-trained drivers, we are not just blowing our horns out loud - we take pride in it because we honor our word. We are here to cater to all of your travelling needs – When you are in a hurry to reach the airport and in a worry of missing the flight, or visiting a family member out of town or taking an important client to a corporate meeting, Traveltime is there for you to accommodate all of your travelling needs not only in Pune, but now across India as well. </p>
+<p>We care for the environment. Our concern has inspired us to opt for eco-friendly practices that eventually helped us become an ISO 9001-2008 certified company
+
+<!Usage of semantic tags in HTML5. Below is "time" tag used>
+<p> <font size="4" color="red"> We open at <time>9:00</time> every morning.</font></p>
+
+<p> <font size="4" color="red"> Sunday is holiday for us and we will be closed on <time datetime="2013-12-25">Christmas</time>.</font> </p>
+
+</p>
+
+       <div class="clear"></div>
+<div class="bottombox">
+	<ul>
+    	<li>
+        	<div class="bottomboxmain">
+            <h2>Fleet Management</h2>
+            	<div class="bottomboxsub"><p>Traveltime provides end to end cab solutions to all its corporate clients. Right from doing a thorough check on the driver’s background to ensuring all.</p>
+                <p align="right"><a href="ourfleet.php">Read More>></a></p>
+                </div>	
+            
+            </div>
+        
+        </li>
+        
+        <li>
+        	<div class="bottomboxmain">
+            <h2>Radio Cabs</h2>
+            	<div class="bottomboxsub"><p>At Traveltime, all our radio cabs are equipped with mobile phones and GPS tracking systems which makes it easier and faster to cater to our customer's requirements.</p>
+                <p align="right"><a href="services.php#radiocabs">Read More>></a></p>
+                </div>	
+            
+            </div>
+        
+        </li>
+        
+        <li>
+        	<div class="bottomboxmain">
+            <h2>Car Rental</h2>
+            	<div class="bottomboxsub"><p>Professionalism with a human touch" Building on this philosophy, Traveltime has carved a niche for itself as a reputed mass transport company in Pune.</p>
+                <p align="right"><a href="services.php#carrental">Read More>></a></p>
+                </div>	
+            
+            </div>
+        
+        </li>
+        
+        <li class="last">
+        	<div class="bottomboxmain">
+            <h2>City Connect</h2>
+            	<div class="bottomboxsub"><p> Building on this philosophy, Traveltime has carved a niche for itself as a reputed mass transport company in Pune. Apt use of technology, optimum and wise utilization </p>
+                <p align="right"><a href="services.php">Read More>></a></p>
+                </div>	
+            
+            </div>
+        
+        </li>
+    </ul>
+
+</div>         </div>               
+                              
+                                
+                                
+                                
+                                </div>
+									
+  
+ <div class="clear"></div>
+ 
+ 	 
+                                    
+                                    </div>
+                    
+                    </div>
+        	
+        </div>
+    
+    </div>
+
+<!Social networking links are provided below>
+
+<nav>
+<p> You can follow us on twitter |<a href = "www.twitter.com"> Twitter | </a> Join us on Facebook. | <a href = "www.facebook.com"> Facebook</a> </p> 
+</nav>
+<h2 style = "background-color:#FFA500;"> Dublin is our pick up point and our office is in London.</h2>
+<h3> Please check map below for more details</h3>
+    	      
+     
+            </div>        
+        </div>
+<!Traveltime info ends at above line>
+
+<div id="googleMap" style="width:500px;height:380px;"></div>
+
+<!Usage of Footer>
+<div id="footer1" style="background-color:#FFA500;clear:both;text-align:center;">
+Copyright © mytaxi.com</div>
+<div id = "footer2" style = "background-color:#FFA500;clear:both;">
+About Us | Careers | Contact Us | Help </div>
+</html>
+
+
